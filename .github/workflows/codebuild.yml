@@ -34,5 +34,4 @@ jobs:
             CDK_NAG_ENABLED=false
             export STACK_NAME=dev
             export REGION=us-west-2
-            export VAMS_ADMIN_EMAIL=$ADMINEMAIL
-            npx cdk synth
+            npx cdk synth --context adminEmailAddress=$ADMIN_EMAIL
