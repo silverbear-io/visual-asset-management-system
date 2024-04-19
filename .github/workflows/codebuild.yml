@@ -23,3 +23,16 @@ jobs:
         env:
           CI: ""
         run: npm run build.lowmem
+
+      - name: Npm install infrastructure directory
+        working-directory: vams/infra
+        run: npm install
+
+      - name: Synthesize Cloudformation templates
+        working-directory: vams/infra
+        run: |
+            CDK_NAG_ENABLED=false
+            export STACK_NAME=dev
+            export REGION=us-west-2
+            export VAMS_ADMIN_EMAIL=$ADMINEMAIL
+            npx cdk synth
