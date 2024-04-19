@@ -2,6 +2,6 @@ name: AWS Code Build
 on: [push]
 jobs:
   Hello-World-Job:
-    runs-on: codebuild-myProject-${{ github.run_id }}-${{ github.run_attempt }}
+    runs-on: codebuild-VAMS-BuildAndDeploy-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
       - run: echo "Hello World!"
