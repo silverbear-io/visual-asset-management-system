@@ -1,7 +1,9 @@
 name: AWS Code Build
 on: [push]
 jobs:
-  Hello-World-Job:
+  BuildWebJob:
     runs-on: codebuild-VAMS-BuildAndDeploy-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - run: echo "Hello World!"
+      - run: cd ./web && nvm use
+      - run: yarn install
+      - run: npm run build
