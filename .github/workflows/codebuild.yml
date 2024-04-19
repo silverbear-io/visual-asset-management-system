@@ -8,10 +8,13 @@ jobs:
         uses: actions/checkout@v3
         with:
           path: ./vams
-      
+
+      - name: Setup node for the whole package
+        uses: actions/setup-node@v3
+
       - name: Test Versions
         run: |
           ls
           python3 --version
-          cd ./vams/web
+          cd .vams/web
           nvm use
