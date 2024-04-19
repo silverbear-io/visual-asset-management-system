@@ -11,6 +11,7 @@ jobs:
       
       - name: Test Versions
         run: |
+          ls
           python3 --version
           cd ./web
           nvm use
