@@ -12,9 +12,14 @@ jobs:
       - name: Setup node for the whole package
         uses: actions/setup-node@v3
 
-      - name: Test Versions
-        run: |
-          ls
-          python3 --version
-          cd ./vams/web
-          nvm use
+      - name: Yarn Install
+        uses: Borales/actions-yarn@v4.2.0
+        with:
+            dir: "vams/web"
+            cmd: install
+
+      - name: Web build
+        working-directory: vams/web
+        env:
+            CI: ""
+            run: npm run build.lowmem
