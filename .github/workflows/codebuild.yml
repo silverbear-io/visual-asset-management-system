@@ -13,5 +13,5 @@ jobs:
         run: |
           ls
           python3 --version
-          cd ./web
+          cd .vams/web
           nvm use
