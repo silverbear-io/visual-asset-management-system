@@ -4,6 +4,13 @@ jobs:
   BuildWebJob:
     runs-on: codebuild-VAMS-BuildAndDeploy-${{ github.run_id }}-${{ github.run_attempt }}
     steps:
-      - run: cd ./web && nvm use
-      - run: yarn install
-      - run: npm run build
+      - name: Checkout repo
+        uses: actions/checkout@v3
+        with:
+          path: ./vams
+      
+      - name: Test Versions
+        run: |
+          python3 --version
+          cd ./web
+          nvm use
