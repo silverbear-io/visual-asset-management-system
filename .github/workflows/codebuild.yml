@@ -32,6 +32,7 @@ jobs:
         working-directory: vams/infra
         env: 
           ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
+          VAMS_ADMIN_EMAIL: admin@silverbear.io
         run: |
             npx cdk bootstrap
             CDK_NAG_ENABLED=false
