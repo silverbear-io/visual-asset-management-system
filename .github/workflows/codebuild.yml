@@ -30,6 +30,8 @@ jobs:
 
       - name: Synthesize Cloudformation templates
         working-directory: vams/infra
+        env: 
+          ADMIN_EMAIL: ${{ secrets.ADMIN_EMAIL }}
         run: |
             npx cdk bootstrap
             CDK_NAG_ENABLED=false
